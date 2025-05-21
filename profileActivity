@@ -1,0 +1,66 @@
+package com.example.profileactivity  // Replace with your actual package name
+
+import android.annotation.SuppressLint
+import android.os.Bundle
+import android.widget.CheckBox
+import androidx.appcompat.app.AppCompatActivity
+import com.example.profileactivity.databinding.ActivityProfileBinding
+import android.app.Activity
+
+class ProfileActivity : Activity() {
+
+
+class ProfileActivity : AppCompatActivity() {
+
+    // View Binding instance
+    private lateinit var binding: ActivityProfileBinding
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+
+        // Initialize View Binding
+        binding = ActivityProfileBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+
+        // Initialize all views
+        val lifetimeCashback: CheckBox = binding.lifetimeCashback
+
+        // Set click listeners
+        binding.credGarage.setOnClickListener {
+            // Handle CRED garage click
+        }
+
+        binding.creditScore.setOnClickListener {
+            // Handle credit score refresh
+        }
+
+        binding.lifetimeCashbackContainer.setOnClickListener {
+            lifetimeCashback.isChecked = !lifetimeCashback.isChecked
+        }
+
+        binding.bankBalance.setOnClickListener {
+            // Handle bank balance check
+        }
+
+        binding.referAndEarn.setOnClickListener {
+            // Handle refer and earn
+        }
+
+        binding.allTransactions.setOnClickListener {
+            // Handle all transactions click
+        }
+
+        // Load sample data
+        loadSampleData()
+    }
+
+    @SuppressLint("SetTextI18n")
+    private fun loadSampleData() {
+        binding.userName.text = "John Doe"
+        binding.memberSince.text = "Member since Jan 2022"
+        binding.creditScore.text = "780 →"
+        binding.cashbackAmount.text = "₹250"
+        binding.coinsAmount.text = "15,32,456"
+    }
+}
+    }
